@@ -1,0 +1,19 @@
+{
+  "name": "trao-doi-tai-lieu-sinh-vien",
+  "version": "2.0.0",
+  "private": true,
+  "description": "CampusShelf - web trao đổi tài liệu học tập sinh viên (Node.js, Express, SQLite)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.10.0",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1"
+  }
+}
