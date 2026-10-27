@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#173b2f" />
+  <title>CampusShelf — Trao đổi tài liệu sinh viên</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/theme.css" />
+</head>
+<body>
+  <div class="announcement"><span class="pulse"></span> Cộng đồng trao đổi tài liệu học tập sinh viên</div>
+  <header class="topbar">
+    <a class="brand" href="#" data-page="home" aria-label="CampusShelf trang chủ">
+      <span class="brand-mark">C<span>+</span></span>
+      <span><b>campus<span>shelf</span></b><small>HỌC TẬP · CHIA SẺ · TÁI SỬ DỤNG</small></span>
+    </a>
+    <nav class="desktop-nav">
+      <a href="#" data-page="home" class="nav-link active">Trang chủ</a>
+      <a href="#" data-page="catalog" class="nav-link">Khám phá</a>
+      <a href="#" data-page="assistant" class="nav-link">Trợ lý AI</a>
+      <a href="#" data-page="exchanges" class="nav-link">Trao đổi</a>
+      <a href="#" data-page="messages" class="nav-link">Tin nhắn <i class="nav-dot" id="msgDot" hidden></i></a>
+      <a href="#" data-page="admin" class="nav-link" id="adminLink" hidden>Quản trị</a>
+    </nav>
+    <div class="top-actions">
+      <button class="icon-btn" id="themeBtn" title="Đổi giao diện">◐</button>
+      <div id="authArea"></div>
+    </div>
+  </header>
+
+  <main id="app"></main>
+  <template id="homeTemplate">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-icon">✳</span> TÀI LIỆU TỪ SINH VIÊN, CHO SINH VIÊN</div>
+        <h1>Một cuốn sách.<br><em>Thêm một cơ hội.</em></h1>
+        <p>Tìm giáo trình bạn cần, trao lại cuốn sách đã học xong. Kết nối gần trường, hẹn gặp trực tiếp, học tập tiết kiệm hơn.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" data-page="catalog">Khám phá tài liệu <span>↗</span></button>
+          <button class="btn btn-light" data-page="post"><span class="plus">＋</span> Đăng tài liệu</button>
+        </div>
+        <div class="hero-proof"><div class="proof-avatars"><span>Q</span><span>A</span><span>N</span><span>+</span></div><span><b>Chia sẻ tri thức</b><br><small>Mỗi tài liệu đều có câu chuyện mới</small></span></div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
+        <div class="floating-note note-top"><span>✦</span><div><b>Trao đổi dễ dàng</b><small>Hẹn gặp ngay trong trường</small></div></div>
+        <div class="book-stack">
+          <div class="book book-back"><span>ENGINEERING<br>MATHEMATICS</span><small>ADVANCED EDITION</small></div>
+          <div class="book book-mid"><span>Digital<br>Signal<br>Processing</span><small>PROAKIS · MANOLAKIS</small><i>DSP</i></div>
+          <div class="book book-front"><span>THE ART OF<br>LEARNING</span><small>STUDY SMARTER</small><div class="book-sun"></div></div>
+        </div>
+        <div class="floating-note note-bottom"><span class="sparkle">✧</span><div><b>Reuse. Relearn.</b><small>Giảm lãng phí tài liệu</small></div></div>
+      </div>
+      <div class="hero-bottomline"><span>01 / CỘNG ĐỒNG SINH VIÊN</span><span>BUILT FOR CAMPUS LIFE ↘</span></div>
+    </section>
+
+    <section class="stats-row">
+      <div><strong id="statBooks">00</strong><span>Tài liệu đang có</span></div>
+      <div><strong>04</strong><span>Hình thức trao đổi</span></div>
+      <div><strong>01</strong><span>Cộng đồng, nhiều kết nối</span></div>
+      <div class="stats-note">Không phải sàn thương mại.<br><b>Là nơi tài liệu tìm được người cần.</b></div>
+    </section>
+
+    <section class="content-section" id="discovery">
+      <div class="section-heading">
+        <div><div class="eyebrow">CHỌN THEO NHU CẦU</div><h2>Tìm cuốn tiếp theo <span class="heading-leaf">↗</span></h2><p>Giáo trình, sách tham khảo và tài liệu học tập bản cứng.</p></div>
+        <a href="#" class="text-link" data-page="catalog">Xem tất cả tài liệu <span>→</span></a>
+      </div>
+      <div class="category-pills" id="quickModes">
+        <button class="pill active" data-mode="">Tất cả tài liệu</button><button class="pill" data-mode="Bán">Mua lại</button><button class="pill" data-mode="Trao đổi">Trao đổi</button><button class="pill" data-mode="Tặng">Được tặng</button><button class="pill" data-mode="Cho mượn">Cho mượn</button>
+      </div>
+      <div class="listing-grid" id="homeListings"></div>
+    </section>
+
+    <section class="ai-banner">
+      <div class="ai-icon">✳</div><div class="ai-copy"><span class="eyebrow">CAMPUSSHELF ASSISTANT</span><h2>Từ ảnh bìa đến thông tin sách.</h2><p><span data-ai-text>Tải ảnh bìa lên để AI tự điền tên sách, tác giả và môn học.</span></p></div>
+      <button class="btn btn-dark" data-page="post">Thử đăng với AI <span>↗</span></button>
+      <div class="ai-deco">✳</div>
+    </section>
+
+    <section class="content-section request-strip">
+      <div><div class="eyebrow">CHƯA TÌM THẤY SÁCH?</div><h2>Để cộng đồng giúp bạn tìm.</h2><p>Đăng nhu cầu cụ thể. Khi có người phù hợp, bạn đã biết mình cần hỏi điều gì.</p></div>
+      <button class="btn btn-primary" data-page="requests">Xem nhu cầu &nbsp; →</button>
+    </section>
+  </template>
+
+  <footer><a class="brand footer-brand" href="#" data-page="home"><span class="brand-mark">C<span>+</span></span><span><b>campus<span>shelf</span></b><small>HỌC TẬP · CHIA SẺ · TÁI SỬ DỤNG</small></span></a><span>Đồ án nhóm 26 · Hệ thống trao đổi tài liệu học tập sinh viên</span><span class="footer-right">VERSION 2.0</span></footer>
+  <div id="toast" class="toast" role="status"></div>
+  <div id="modalRoot"></div>
+  <script src="/app.js"></script>
+  <script src="/fx.js"></script>
+</body>
+</html>
